@@ -9,15 +9,6 @@ repos:
     pass_filenames: false
     fail_fast: true
 
-  - id: docformatter
-    name: docformatter
-    description: 'Formats docstrings to follow PEP 257.'
-    entry: docformatter
-    args: ["-i", "--black" ]
-    language: python
-    types: [ python ]
-    fail_fast: true
-
   - id: black
     name: Black code formatter
     entry: black
