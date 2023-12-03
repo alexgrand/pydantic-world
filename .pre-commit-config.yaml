@@ -1,0 +1,37 @@
+repos:
+- repo: local
+  hooks:
+  - id: isort
+    name: Isort import sorter
+    entry: isort
+    language: python
+    types: [python]
+    pass_filenames: false
+    fail_fast: true
+
+  - id: docformatter
+    name: docformatter
+    description: 'Formats docstrings to follow PEP 257.'
+    entry: docformatter
+    args: ["-i", "--black" ]
+    language: python
+    types: [ python ]
+    fail_fast: true
+
+  - id: black
+    name: Black code formatter
+    entry: black
+    args: [ ".", "--line-length=120" ]
+    language: python
+    types: [ python ]
+    pass_filenames: false
+    fail_fast: true
+
+  - id: flake8
+    name: Flake8 code style checker
+    entry: flake8
+    args: ["--max-line-length=120"]
+    language: python
+    types: [python]
+    pass_filenames: false
+    fail_fast: true
