@@ -87,7 +87,7 @@ if __name__ == "__main__":
         # create settings via init
         settings = Settings(env_name="test", vault=Vault(url="https://my-vault.com", token="some_token"))
         print(settings.model_dump(mode="json"))
-        # {'env_name': 'stage_env', 'vault': {'url': 'https://my-secret-vault.com/', 'token': 'stage_token'}}
+        # {'env_name': 'test', 'vault': {'url': 'https://my-vault.com/', 'token': 'some_token'}}
 
         # create env_name in secrets file
         with open(secret_env_path, "w") as fl:
@@ -121,6 +121,7 @@ if __name__ == "__main__":
         os.environ["BEST_APP.ENV_NAME"] = "PROD"
         settings = NewSettings()
         print(settings.model_dump(mode="json"))
+        # {'env_name': 'stage_env', 'vault': {'url': 'https://my-secret-vault.com/', 'token': 'stage_token'}}
 
     finally:
         # remove files
